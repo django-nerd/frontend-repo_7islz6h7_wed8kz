@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun, Palette, Image as ImageIcon } from 'lucide-react';
+import { Moon, Sun, Image as ImageIcon } from 'lucide-react';
 
 export default function Navbar({ darkMode, setDarkMode, sketchMode, setSketchMode }) {
   return (
