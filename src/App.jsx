@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Intro from './components/Intro';
+import Gallery from './components/Gallery';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const [sketchMode, setSketchMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className={darkMode ? 'dark bg-[#0C0C0C]' : 'bg-[#F5F2E8]'}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} sketchMode={sketchMode} setSketchMode={setSketchMode} />
+      <main>
+        <Hero darkMode={darkMode} />
+        <Intro darkMode={darkMode} />
+        <Gallery darkMode={darkMode} sketchMode={sketchMode} />
+        <Contact darkMode={darkMode} />
+      </main>
+      <footer className={`py-10 text-center text-sm ${darkMode ? 'text-neutral-500' : 'text-neutral-700'}`}>
+        Handcrafted by The Artist · A Digital Atelier
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
