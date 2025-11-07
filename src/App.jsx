@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Intro from './components/Intro';
-import Gallery from './components/Gallery';
+import About from './components/About';
+import PortfolioFilters from './components/PortfolioFilters';
+import CaseStudy from './components/CaseStudy';
 import Contact from './components/Contact';
 
 export default function App() {
@@ -23,7 +25,9 @@ export default function App() {
       <main>
         <Hero darkMode={darkMode} />
         <Intro darkMode={darkMode} />
-        <Gallery darkMode={darkMode} sketchMode={sketchMode} />
+        <About darkMode={darkMode} />
+        <PortfolioFilters darkMode={darkMode} sketchMode={sketchMode} />
+        <CaseStudy darkMode={darkMode} />
         <Contact darkMode={darkMode} />
       </main>
       <footer className={`py-10 text-center text-sm ${darkMode ? 'text-neutral-500' : 'text-neutral-700'}`}>
